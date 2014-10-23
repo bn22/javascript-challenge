@@ -27,3 +27,24 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+	var exitButton = document.getElementById('cancelButton');
+	exitButton.addEventListener('click', function () {
+		if (window.confirm('Are you really sure you want to leave?')) {
+			window.location = "http://www.google.com";
+		}
+	});
+});
+
+function validateForm(field) {
+	var value = field.value;
+	value = value.trim();
+	var valid = value.length > 0;
+	if (valid) {
+		field.classname = 'form-control'
+	}
+	else {
+		field.classname = 'form-control invalid-field'
+	}
+	return valid
+}
