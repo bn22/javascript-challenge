@@ -40,13 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function onSubmit(evt) {
-    try {
-        var valid = validateForm(this);
-    }
-    catch(exception) {
-        valid = false;
-    }
-    if (!valid) {
+    var valid = validateForm(this);
+     if (!valid) {
          var errMsg = document.getElementById('error-message');
          errMsg.innerHTML = 'Please provide values for the required fields!';
          errMsg.style.display = 'block';
@@ -100,9 +95,6 @@ function validateRequiredField(field) {
             }
             if (yearDiff < 13) {
                 field.className = 'form-control invalid-field';
-                var birthDateMsg = document.getElementById('birthdateMessage');
-                birthDateMsg.innerHTML = 'User is only ' + yearDiff + ' years old! Must be 13 to signup.';
-                birthDateMsg.style.display = 'block';
                 return !valid;
             }
         }
@@ -113,6 +105,5 @@ function validateRequiredField(field) {
     }
     return valid;
 }
-
 
 document.addEventListener('DOMContentLoaded', onReady);
